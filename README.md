@@ -9,3 +9,6 @@
     -   currentWeather
 -   currencyConverter
     -   currencyLookup
+-   sportsbookOdds
+    -   sportsLookup
+    -   oddsTableCell

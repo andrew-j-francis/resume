@@ -19,7 +19,7 @@
         <members>sportsLookup</members>
         <members>weather</members>
         <members>oddsTable</members>
-        <members>moneyLineTableCell</members>
+        <members>oddsTableCell</members>
         <name>LightningComponentBundle</name>
     </types>
     <version>55.0</version>

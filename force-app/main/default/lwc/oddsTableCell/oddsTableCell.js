@@ -1,6 +1,6 @@
-import { LightningElement, api } from "lwc";
+import {api, LightningElement} from 'lwc';
 
-export default class OddsTableBookmakerOdds extends LightningElement {
+export default class OddsTableCell extends LightningElement {
     @api bookmaker;
     @api game;
     @api market;
@@ -23,7 +23,7 @@ export default class OddsTableBookmakerOdds extends LightningElement {
                     return "";
             }
         } catch(error){
-           return "";
+            return "";
         }
     }
 

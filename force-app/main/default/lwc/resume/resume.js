@@ -135,7 +135,7 @@ export default class Resume extends NavigationMixin(LightningElement) {
 			{
 				type: "standard__webPage",
 				attributes: {
-					url: "https://github.com/andrew-j-francis/Resume"
+					url: "https://github.com/andrew-j-francis/resume"
 				}
 			},
 			false

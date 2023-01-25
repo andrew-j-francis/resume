@@ -28,7 +28,7 @@ export default class OddsTable extends LightningElement {
     }
 
     cycleOddsBackwards(){
-        this.marketIndex = (this.marketIndex - 1) % 3;
+        this.marketIndex = (((this.marketIndex - 1) % 3) + 3) % 3;
     }
 
     get tableLabel(){

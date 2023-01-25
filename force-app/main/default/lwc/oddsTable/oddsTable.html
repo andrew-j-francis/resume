@@ -36,7 +36,7 @@
                     </td>
                     <template if:true={bookmakers} for:each={bookmakers} for:item="bookmaker">
                         <td key={bookmaker.key}>
-                            <c-money-line-table-cell bookmaker={bookmaker.key} game={game} market={market}></c-money-line-table-cell>
+                            <c-odds-table-cell bookmaker={bookmaker.key} game={game} market={market}></c-odds-table-cell>
                         </td>
                     </template>
                 </tr>
