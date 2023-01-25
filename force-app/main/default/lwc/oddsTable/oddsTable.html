@@ -1,0 +1,47 @@
+<template>
+    <div style="display:flex; flex-direction:column">
+        <div style="display:flex; flex-direction:row; justify-content: space-around" class="slds-p-vertical_medium">
+           <div>
+               <lightning-button-icon icon-name="utility:chevronleft" size="large" variant="border" onclick={cycleOddsBackwards}></lightning-button-icon>
+           </div>
+            <div class="slds-text-heading_medium">
+               {tableLabel}
+           </div>
+            <div>
+                <lightning-button-icon icon-name="utility:chevronright" size="large" variant="border" onclick={cycleOddsForwards}></lightning-button-icon>
+            </div>
+        </div>
+
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+            <thead>
+            <tr class="slds-line-height_reset">
+                <th class="text-align:center;" scope="col">
+                    <div class="slds-truncate" title="Games">Games</div>
+                </th>
+                <template if:true={bookmakers} for:each={bookmakers} for:item="bookmaker">
+                    <th class="text-align:center;" scope="col" key={bookmaker.key}>
+                        <div class="slds-truncate">{bookmaker.name}</div>
+                    </th>
+                </template>
+            </tr>
+            </thead>
+            <tbody>
+            <template if:true={odds} for:each={odds} for:item="game">
+                <tr class="slds-hint-parent" key={game.id}>
+                    <td data-label="Game">
+                        <div class="slds-truncate" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start">
+                            <div>{game.away_team}</div>
+                            <div>{game.home_team}</div>
+                        </div>
+                    </td>
+                    <template if:true={bookmakers} for:each={bookmakers} for:item="bookmaker">
+                        <td key={bookmaker.key}>
+                            <c-money-line-table-cell bookmaker={bookmaker.key} game={game} market={market}></c-money-line-table-cell>
+                        </td>
+                    </template>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+    </div>
+</template>

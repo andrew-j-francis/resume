@@ -1,0 +1,29 @@
+<template>
+	<div class="daily-weather-container">
+		<div>{date}</div>
+		<img src={icon} />
+		<div>
+			<template for:each={forecast.weather} for:item="type">
+				<div key={type} class="current-weather">{type.main}</div>
+			</template>
+		</div>
+		<div class="temp">{forecast.temp.day}&#176;F</div>
+		<div class="info-container">
+			<div>Feels like:</div>
+			<div>{forecast.feels_like.day}&#176;F</div>
+		</div>
+		<div class="info-container">
+			<div>Low of:</div>
+			<div>{forecast.temp.night}&#176;F</div>
+		</div>
+
+		<div class="info-container">
+			<div>Dew Point:</div>
+			<div>{forecast.dew_point}&#176;F</div>
+		</div>
+		<div class="info-container">
+			<div>Winds:</div>
+			<div>{forecast.wind_speed}mph</div>
+		</div>
+	</div>
+</template>

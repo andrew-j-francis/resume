@@ -1,0 +1,89 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<div class="slds-p-top_small">
+		<lightning-card variant="Narrow" title="Resume" icon-name="standard:drafts">
+			<template if:true={showSpinner}>
+				<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+			</template>
+			<lightning-button-group slot="actions">
+				<lightning-button-icon
+					icon-name="utility:download"
+					variant="border-filled"
+					alternative-text="Download"
+					onclick={handleDownload}
+				></lightning-button-icon>
+				<lightning-button variant="border-filled" label="View on Github" onclick={navigateToGithub}></lightning-button>
+			</lightning-button-group>
+
+			<!--Begin Header-->
+			<lightning-layout multiple-rows>
+				<lightning-layout-item size="4" padding="around-small" small-device-size="4" medium-device-size="4" large-device-size="4">
+					<div class="slds-text-heading_medium">ANDREW FRANCIS</div>
+					<p class="slds-text-body_small">Baltimore, MD</p>
+					<p class="slds-text-body_small">(443)-851-0768</p>
+					<lightning-formatted-text class="slds-text-body_small" value="ajfrancis102@gmail.com" linkify></lightning-formatted-text>
+				</lightning-layout-item>
+				<lightning-layout-item size="8" padding="around-small" small-device-size="8" medium-device-size="8" large-device-size="8">
+				</lightning-layout-item>
+			</lightning-layout>
+			<!--End Header-->
+
+			<!--Begin Education-->
+			<div class="slds-p-around_medium">
+				<h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Education</h2>
+				<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+					<tbody>
+						<template if:true={education} for:each={education} for:item="item" for:index="index">
+							<tr key={item.Id} class="slds-hint-parent">
+								<td>
+									<div class="slds-truncate slds-text-body_small">{item.Name}</div>
+								</td>
+								<td>
+									<div class="slds-truncate slds-text-body_small">{item.Date}</div>
+								</td>
+							</tr>
+						</template>
+					</tbody>
+				</table>
+			</div>
+			<!--End Education-->
+
+			<!--Begin Skills-->
+			<div class="slds-p-around_medium">
+				<h2 class="slds-text-heading_medium slds-m-bottom_xx-small slds-p-top_large">Skills</h2>
+				<div class="slds-box slds-box_xx-small">
+					<template if:true={skills} for:each={skills} for:item="skill" for:index="index">
+						<span class="slds-pill" key={skill.Id}>
+							<span class="slds-pill__label slds-text-body_small">{skill}</span>
+						</span>
+					</template>
+				</div>
+			</div>
+			<!--End Skills-->
+
+			<!--Begin Experience-->
+			<div class="slds-p-around_medium">
+				<h2 class="slds-text-heading_medium slds-m-bottom_medium slds-p-top_large">Experience</h2>
+				<template if:true={experiences} for:each={experiences} for:item="experience" for:index="index">
+					<div class="slds-p-bottom_medium slds-p-left_medium" key={experience.Id}>
+						<lightning-layout multiple-rows>
+							<lightning-layout-item size="12" padding="bottom_small" small-device-size="8" medium-device-size="8" large-device-size="8">
+								<p class="slds-text-body_medium">{experience.Name}, {experience.Company}</p>
+								<template if:true={experience.CurrentEmployer}>
+									<p class="slds-text-body_medium slds-text-color_weak">{experience.StartDate} - Present</p>
+								</template>
+								<template if:false={experience.CurrentEmployer}>
+									<p class="slds-text-body_regular slds-text-color_weak">{experience.StartDate} - {experience.EndDate}</p>
+								</template>
+							</lightning-layout-item>
+						</lightning-layout>
+						<div class="slds-p-left_large">
+							<lightning-formatted-rich-text class="slds-text-body_small" value={experience.Details}></lightning-formatted-rich-text>
+						</div>
+					</div>
+				</template>
+			</div>
+			<!--End Experience-->
+		</lightning-card>
+	</div>
+</template>

@@ -1,0 +1,84 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<div class="slds-form-element">
+		<div class="slds-form-element__control" tabindex="0" onblur={handleBlur}>
+			<div class={comboboxContainerClasses} style="width: 15rem">
+				<div class={comboboxClasses}>
+					<!--Combobox-->
+					<div class={comboboxFormElementClasses} role="none">
+						<!--Input Field-->
+						<template if:false={selectedSportLabel}>
+							<input
+								type="text"
+								class="slds-input slds-combobox__input"
+								role="combobox"
+								placeholder="Select Sport..."
+								oninput={handleInput}
+								autocomplete="off"
+								onfocus={handleFocus}
+								onblur={handleBlur}
+							/>
+							<span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+								<svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default">
+									<use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#search"></use>
+								</svg>
+							</span>
+						</template>
+						<!--Selected Currency-->
+						<template if:true={selectedSportLabel}>
+							<span class="slds-icon_container slds-icon-standard-account slds-combobox__input-entity-icon">
+								<svg class="slds-icon slds-icon_small">
+									<use xlink:href="/_slds/icons/standard-sprite/svg/symbols.svg#goals"></use>
+								</svg>
+							</span>
+							<button type="button" class="slds-input_faux slds-combobox__input slds-combobox__input-value" id="combobox-id-5-selected-value">
+								<span class="slds-truncate" id="combobox-value-id-20">{selectedSportLabel}</span>
+							</button>
+							<button
+								class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+								onclick={remove}
+								title="Remove selected option"
+							>
+								<svg class="slds-button__icon" aria-hidden="true">
+									<use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close"></use>
+								</svg>
+								<span class="slds-assistive-text">Remove Selected</span>
+							</button>
+						</template>
+					</div>
+
+					<!--Listbox-->
+					<div
+						id="lookup-listbox"
+						class="slds-dropdown slds-dropdown_length-10 slds-dropdown_fluid"
+						role="listbox"
+						onmousedown={handleMouseDown}
+						onmouseup={handleMouseUp}
+					>
+						<template if:true={spinner}>
+							<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+						</template>
+						<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+							<template if:true={filteredSports} for:each={filteredSports} for:item="sport" for:index="index">
+								<li key={sport.title} role="presentation" class="slds-listbox__item">
+									<div
+										class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+										role="option"
+										data-key={sport.key}
+										data-label={sport.title}
+										onmousedown={handleSelect}
+									>
+										<span class="slds-media__body">
+											<span class="slds-listbox__option-text slds-listbox__option-text_entity">{sport.title}</span>
+											<span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{sport.group}</span>
+										</span>
+									</div>
+								</li>
+							</template>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

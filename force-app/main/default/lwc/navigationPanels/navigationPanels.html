@@ -1,0 +1,85 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<fieldset class="slds-form-element">
+		<div class="slds-form-element__control">
+			<lightning-layout multiple-rows>
+				<lightning-layout-item size="3" small-device-size="3" medium-device-size="3" large-device-size="3">
+					<div>
+						<div class="slds-visual-picker slds-visual-picker_medium slds-p-around_small">
+							<input type="radio" />
+							<label onclick={handleNavigate} data-button="resume">
+								<span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+									<span class="slds-icon_container">
+										<div>
+											<svg class="slds-icon slds-icon-utility-connected_apps slds-icon_large slds-icon-text-default" aria-hidden="true">
+												<use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#drafts"></use>
+											</svg>
+										</div>
+										<div class="slds-text-align_center slds-p-top_small">Resume</div>
+									</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="3" small-device-size="3" medium-device-size="3" large-device-size="3">
+					<div>
+						<div class="slds-visual-picker slds-visual-picker_medium slds-p-around_small">
+							<input type="radio" />
+							<label onclick={handleNavigate} data-button="currency">
+								<span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+									<span class="slds-icon_container">
+										<div>
+											<svg class="slds-icon slds-icon-utility-connected_apps slds-icon_large slds-icon-text-default" aria-hidden="true">
+												<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#money"></use>
+											</svg>
+										</div>
+										<div class="slds-text-align_center slds-p-top_small">Currency Converter</div>
+									</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="3" small-device-size="3" medium-device-size="3" large-device-size="3">
+					<div>
+						<div class="slds-visual-picker slds-visual-picker_medium slds-p-around_small">
+							<input type="radio" />
+							<label onclick={handleNavigate} data-button="weather">
+								<span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+									<span class="slds-icon_container">
+										<div>
+											<svg class="slds-icon slds-icon-utility-connected_apps slds-icon_large slds-icon-text-default" aria-hidden="true">
+												<use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#water"></use>
+											</svg>
+										</div>
+										<div class="slds-text-align_center slds-p-top_small">Weather</div>
+									</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="3" small-device-size="3" medium-device-size="3" large-device-size="3">
+					<div>
+						<div class="slds-visual-picker slds-visual-picker_medium slds-p-around_small">
+							<input type="radio" />
+							<label onclick={handleNavigate} data-button="sportsbook">
+								<span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+									<span class="slds-icon_container">
+										<div>
+											<svg class="slds-icon slds-icon-utility-connected_apps slds-icon_large slds-icon-text-default" aria-hidden="true">
+												<use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#goals"></use>
+											</svg>
+										</div>
+										<div class="slds-text-align_center slds-p-top_small">Sportsbook Odds</div>
+									</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</lightning-layout-item>
+			</lightning-layout>
+		</div>
+	</fieldset>
+</template>

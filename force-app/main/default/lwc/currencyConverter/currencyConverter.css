@@ -1,0 +1,65 @@
+.currency-container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.currency-settings {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+}
+
+.convert-button {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: normal;
+}
+
+.results {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: normal;
+	margin-top: 1.5rem;
+}
+
+.total {
+	font-size: 40px;
+	letter-spacing: 2px;
+	word-spacing: 2px;
+	font-weight: 600;
+}
+
+.arrow {
+	width: 120px;
+	margin-top: 0.5rem;
+}
+
+.line {
+	margin-top: 14px;
+	width: 90px;
+	background: black;
+	height: 10px;
+	float: left;
+}
+
+.point {
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 30px solid black;
+	float: right;
+}

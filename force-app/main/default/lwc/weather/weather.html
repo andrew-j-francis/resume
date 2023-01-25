@@ -1,0 +1,31 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<lightning-card variant="Narrow" title="Weather App" icon-name="standard:water" style="overflow: scroll">
+		<template if:true={spinner}>
+			<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+		</template>
+		<lightning-layout vertical-align="center">
+			<lightning-layout-item size="8" padding="horizontal-small">
+				<lightning-input type="text" name="zipcode" placeholder="Enter Zip Code" onchange={handleChange} autocomplete="off"></lightning-input>
+			</lightning-layout-item>
+			<lightning-layout-item size="4" padding="around-small">
+				<lightning-button variant="brand" label="Get Weather" onclick={getWeather}></lightning-button>
+			</lightning-layout-item>
+		</lightning-layout>
+
+		<!--Weather Display-->
+		<template if:true={forecasts}>
+			<div class="slds-p-horizontal_medium">
+				<div class="slds-text-heading_large slds-p-bottom_small">Weather in {submittedZip}</div>
+
+				<div class="weekly-container">
+					<!--Today-->
+					<c-current-weather forecast={forecasts.current}></c-current-weather>
+
+					<!--Forecast-->
+					<template for:each={forecasts.daily} for:item="forecast"> <c-daily-weather key={forecast} forecast={forecast}></c-daily-weather> </template>
+				</div>
+			</div>
+		</template>
+	</lightning-card>
+</template>

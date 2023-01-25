@@ -1,0 +1,57 @@
+<template>
+	<lightning-card variant="narrow" title="Currency Converter" icon-name="utility:money">
+		<template if:true={spinner}>
+			<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+		</template>
+
+		<div class="currency-container">
+			<div class="currency-settings">
+				<lightning-input
+					type="number"
+					variant="standard"
+					name="name"
+					placeholder="Currency Amount..."
+					onchange={handleInputChange}
+					formatter="currency"
+					step="0.01"
+					autocomplete="false"
+				 label=""></lightning-input>
+				<c-currency-lookup onselect={handleFromSelect}></c-currency-lookup>
+				<div class="arrow">
+					<div class="line"></div>
+					<div class="point"></div>
+				</div>
+				<c-currency-lookup onselect={handleToSelect}></c-currency-lookup>
+			</div>
+			<div class="convert-button">
+				<lightning-button variant="brand" label="Convert" onclick={convertCurrency}></lightning-button>
+			</div>
+
+			<template if:true={conversion}>
+				<div class="results">
+					<div class="total">
+						<lightning-formatted-number
+							value={conversion.result}
+							format-style="currency"
+							currency-code={selectedTo}
+							minimum-fraction-digits="4"
+							maximum-fraction-digits="4"
+							currency-display-as="code"
+						></lightning-formatted-number>
+					</div>
+					<div style="padding-left: 0.5rem">
+						<p>at</p>
+						<lightning-formatted-number
+							value={conversion.info.rate}
+							format-style="currency"
+							currency-code={selectedFrom}
+							minimum-fraction-digits="4"
+							maximum-fraction-digits="4"
+							currency-display-as="code"
+						></lightning-formatted-number>
+					</div>
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

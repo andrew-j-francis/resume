@@ -1,0 +1,17 @@
+<template>
+    <lightning-card variant="narrow" title="Sportsbook Odds" icon-name="standard:goals">
+        <div style="display: flex; flex-direction: column" class="slds-p-horizontal_medium">
+            <div style="display: flex; flex-direction: row; justify-content: center">
+                <div style="margin-right: .25rem">
+                    <c-sports-lookup onselect={handleSportSelect}></c-sports-lookup>
+                </div>
+                <div style="margin-left: .25rem">
+                    <lightning-button variant="brand" label="Get Odds" onclick={retrieveOdds}></lightning-button>
+                </div>
+            </div>
+            <template if:true={odds}>
+                <c-odds-table odds={odds} bookmakers={bookmakers}></c-odds-table>
+            </template>
+        </div>
+    </lightning-card>
+</template>
