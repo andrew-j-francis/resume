@@ -1,5 +1,5 @@
 import { LightningElement, wire } from "lwc";
-import getSports from "@salesforce/apex/ArbitrageController.getSports";
+import getSports from "@salesforce/apex/SportsbookOddsController.getSports";
 
 export default class SportsLookup extends LightningElement {
 	spinner = true;
